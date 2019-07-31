@@ -1,0 +1,192 @@
+{
+  "common": {
+    "everstake": "Everstake"
+  },
+
+  "home": {
+    "stakeWithUs": "Stake with us",
+    "aboutUs": "About us",
+    "coins": "Coins",
+    "team": "Team",
+    "support": "Support",
+    "stakingService": "Staking Service Platform",
+    "everstakeHelps": "Everstake helps institutional investors and regular token holders\nto profit off their crypto assets. We operate in a wide range of\nProof of Stake blockchains, providing our customers with numerous\noptions to choose from. Pick the most promising projects, delegate\nwith Everstake and make 5%-20% annually.",
+    "everstakeHelpsShort": "Everstake helps institutional investors and regular token holders to profit off their crypto assets.",
+    "everstakeStats": "Everstake validation stats",
+    "availableCoins": "Available coins",
+
+    "coinsPresentation": {
+      "tezos": "We are running a delegation service.\nMore information here.",
+      "iost": "We currently became a Servi Node.\nYou can support us with your votes.",
+      "waves": "You can lease your tokens to us.",
+      "cosmos": "Validator - Everstake.",
+      "eos": "You can lease your tokens to resource exchange (REX) and earn passive income.",
+      "dash": "If you would like to participate in\n Dash pool, send us an e-mail.",
+      "qtum": "If you would like to participate in\n Qtum pool, send us an e-mail.",
+      "irisnet": "Validator - Everstake.\nThe fee is 10%.",
+      "decred": "If you would like to participate in\n Decred pool, send us an e-mail.",
+      "etherZero": "If you would like to participate in EtherZero pool, send us an e-mail.",
+      "ethereum2": "We are an Ethereum 2.0 testnet contributor",
+      "ark": "Delegate - Everstake. The fee is 5%.",
+      "iotex": "Delegate - Everstake. The fee is 10%",
+      "harmony": "We are running node for Harmony.",
+      "algorand": "We are running node for Algorand.",
+      "nkn": "We are running node for NKN."
+    },
+
+    "stakeNow": "Stake now",
+    "lendNow": "Lend now",
+    "devCoins": "Сoins under active development",
+    "moreDetails": "More details are coming soon.",
+    "whyChooseUs": "Why choose us",
+
+    "reasons": {
+      "one": {
+        "title": "Top-Notch Gear",
+        "description": "High-performance servers, broadband channels and advanced network topology allow us to show 99.9% uptime and generate blocks really fast."
+      },
+      "two": {
+        "title": "Proven Track Record",
+        "description": "The team behind Everstake is Attic Lab, a TOP-21 EOS block producer and a developer of the Codex.one crypto exchange."
+      },
+      "three": {
+        "title": "Automatic Payouts",
+        "description": "All payouts are calculated and processed automatically, so your rewards are sent out as soon as they become available."
+      },
+      "four": {
+        "title": "Transparency",
+        "description": "All our operations and activities are open to the general public. We have strong commitment to clarity and transparency of our operations."
+      },
+      "five": {
+        "title": "Support",
+        "description": "We are ready to answer any questions from our customers 24/7."
+      }
+    },
+
+    "everstakeIsATeam": "Everstake is a team of experienced developers, financial experts and blockchain enthusiasts. The company was founded by Attic Lab, an EOS block producer from Ukraine.",
+    "weRunHighlySecure": "We run highly secure and reliable nodes for PoS protocols using the enterprise-level hardware to ensure maximum efficiency and security.",
+    "teamHere": "Team here",
+
+    "members": {
+      "vas": {
+        "position": "CEO and Founder",
+        "name": "Sergii \nVasylchuk",
+        "vitae": "A former software engineer with thorough knowledge in finance, now Sergii is CEO at Attic Lab. A wide range of business and technical skills allows him to manage complex software projects. As a founder of Everstake, Sergii is involved in business development and strategic planning."
+      },
+      "fen": {
+        "position": "CTO and Co-founder",
+        "name": "Sergii \nRopchan",
+        "vitae": "Senior Infrastructure Engineer at Attic Lab. Proven ability to create and deliver solutions tied to business growth, organizational development and systems/network optimization. Sergii has over 20 years of Unix software engineering, system administration, and DevOps experience."
+      },
+      "chern": {
+        "position": "CBDO and Co-founder",
+        "name": "Dmitry \nChernobay",
+        "vitae": "Dmitry Chernobay is a Ukrainian national, educated in the UK (MBA Banking & Finance), Slovenia (MBA Intl Business) and Ukraine (MA). Mr Chernobay has worked in the private sector in the Ukraine for Bank Société Générale Ukraine as Head of Corporate Banking & Marketing, JSC UkrGasBank as Deputy Chairman, and in the public sector as a policy advisor to the Prime Minister of Ukraine on banking & IFIs. Mr. Chernobay is currently a Supervisory Board member of PrJSC Eurocar and serves as director of Ukrainian technology company Attic Lab Ltd specialized in blockchain and fintech applications."
+      },
+      "kerya": {
+        "position": "CPO",
+        "name": "Alexandr \nKerya",
+        "vitae": "Alexandr has over 5+ years of experience in the blockchain and crypto industry and is one of the early crypto adopters. \nDuring past years, Alexandr was responsible for the preparation and implementation positioning strategy and development process for crypto exchanges, payment services and blockchain solutions on crypto and FinTech markets."
+      },
+      "boh": {
+        "position": "COO",
+        "name": "Bohdan \nOpryshko",
+        "vitae": "Bohdan holds Master's degree in Physics. After many years of successful experience in project management, SMM and UI/UX design, Bohdan joined Attic Lab. As a lead designer, he developed UX/UI for Codex. His role at Everstake distills down to business planning and customer relations."
+      },
+      "as": {
+        "position": "CFO",
+        "name": "Dmitry \nAsanov",
+        "vitae": "Dmitry is a Financial and Treasury expert. He is tasked with internal assets and accounting management, budgeting and modelling financial schemes. He has worked more than 5 years in banking and holds a Forex and Money Market Dealer certificate issued by National Bank of Ukraine.\nDmitry graduated from the Royal Holloway University of London with a Bachelor of Science degree in Financial and Business Economics."
+      },
+      "mak": {
+        "position": "Investor Relations",
+        "name": "Vlad \nMakarov",
+        "vitae": "Vlad studied computer science and software engineering at School 42 (Fremont, CA). His previous experience in consulting and research yielded in an in-depth knowledge of both the business and technical sides of blockchain technology. At Everstake, Vlad is in charge of finance."
+      },
+      "vit": {
+        "position": "PM",
+        "name": "Vit \nParkhomenko",
+        "vitae": "Vit worked as a BA for big enterprise projects providing support and expertise from discovery phase to successful completion. \nHas extensive knowledge of Business Analysis, Customer Relations and Project Management. \n\nAs a PM Vit oversees projects that focus on developing blockchain tools that \nHis main responsibilities are: development of project roadmaps, creation of performance and success criteria, overseeing of budgets and deadlines."
+      }
+    },
+
+    "about": "About",
+    "product": "Product",
+    "contactUs": "Contact us",
+    "subscribe": "Subscribe",
+    "yourEmail": "Your E-mail",
+    "rewardsPaid": "Rewards Paid",
+    "assetsInControl": "Digital Assets in Control",
+    "assetsStaked": "Digital Assets Staked",
+    "blocksProduced": "Blocks Produced",
+    "rewardDashboard": "Reward Dashboard",
+    "comingSoon": "Coming Soon",
+    "whatIsStaking": "What is staking?"
+  },
+
+  "coinPages": {
+    "tezos": {
+      "tgBot": "Tezos Telegram Bot by Everstake",
+      "howToDelegateTezos": "How to Delegate Your Tezos",
+      "payoutsFrom": "Payouts from ",
+      "rollsShare": "Rolls Share"
+    },
+    "dash": "If you would like to participate in Dash pool, please contact us.",
+    "qtum": "If you would like to participate in Qtum pool, please contact us.",
+    "decred": "If you would like to participate in Decred pool, please contact us.",
+    "cosmos": {
+      "youCanDelegate":"You can delegate your tokens to us",
+      "uptime": "Uptime ",
+      "commission": "Commission",
+      "missedBlocks": "Missed Blocks",
+      "overBlocks": "Over Blocks"
+    },
+    "iost": {
+      "youCanSupport":"You can support us with your votes here",
+      "delegationGuide": "IOST Delegation Guide",
+      "iostTgBot": "IOST Telegram Bot by Everstake"
+    },
+    "irisnet": {
+      "delegate":"Delegate your tokens to us",
+      "totalBlocks": "Total Blocks",
+      "selfBond": "Self Bond"
+    },
+    "eos": {
+      "tryRex": "Try rex",
+      "howToEarn": "How to Earn EOS by Using REX",
+      "youCanLease": "You can lease your tokens to resource exchange and make passive income",
+      "currentBp": "Current block producer"
+    },
+    "etherZero": "If you would like to participate in EtherZero pool, send us an e-mail.",
+    "ark": "Vote for Everstake",
+    "iotex": "Vote for Everstake",
+    "harmony": "If you would like to participate in Harmony pool, send us an e-mail.",
+    "algorand": "If you would like to participate in Algorand pool, send us an e-mail.",
+    "youCanSupportUs": "You can support us",
+    "rolls": "Rolls",
+    "totalStake": "Total Stake",
+    "fee": "Fee",
+    "minDelegation": "Min delegation ",
+    "youCanLease": "You can lease your tokens to us",
+    "uptime": "Uptime ",
+    "total": "Total",
+    "home": "Home",
+    "usefulLinks": "Useful Links"
+  },
+  "stakingPage": {
+    "allYouNeedToKnow": "All You Need To Know About Staking",
+    "sectionOneParagraph": "Currently, there are a lot of blockchains worldwide, and all of them need some kind of user participation to provide consensus. The consensus protocol is a mechanism that allows blockchains to validate and approve or disapprove data and transactions before storing them to make blockchain faultless. There are quite a few different consensus algorithms, and Proof-of-Stake (PoS) and Delegated Proof-of-Stake (DPoS) are the most modern and advanced ones.",
+    "stakingCrypto": "What is Staking in Cryptocurrency?",
+    "sectionTwoParagraph": "To take part in the DPoS process, users save up digital assets to form a ‘stake,’ and delegate it to those who do all the upkeeping work and get a share of the reward in return. This process is called staking. By staking, you take part in the consensus mechanism, and the wallets that work as staking pools, share a part of their rewards, according to your stake with them.",
+    "sectionTwoParagraphPart2": "Initially, this process required a considerable understanding of staking coins, but currently, there are a lot of staking tools for older blockchains, which makes the process very easy.",
+    "howStakingWork": "How Does Staking Work?",
+    "sectionThreeParagraph": "To start staking coins, you need to select a coin, accumulate enough of it for staking and find yourself a pool. Working with staking services is very straightforward and allows you to forget about all the technical hassles. The pool will provide you with all the stats about your stake and reward share, and its support can assist you in case you have questions.",
+    "sectionThreeParagraphPart2": "Every service has a wallet address for a certain coin, and the only thing you need to do is delegate your stake to it. Once you do it, you are staking!",
+    "isItSafe": "Is it Safe?",
+    "sectionFourParagraph": "Staking is comparable with sending your funds to someone, but don’t worry. They can’t spend them and you retain full control of them. However, pools will have a possibility to cheat you, give smaller rewards, and use other possibilities of the protocol. Hence, you should always do your own research, and trust only pools that are transparent enough. Check our all the stats, research for the people behind the business and their contacts, check if they have any other blockchain-related businesses.",
+    "whyEverstake": "Why Everstake?",
+    "sectionFiveParagraph": "Everstake is built by professionals who have been cryptocurrency enthusiasts for several years so far. We have great hands-on experience in building blockchain products of all kinds, ranging from small developer tools and comfortable mobile wallets to exchanges and sophisticated business-oriented enterprise level blockchain tools.",
+    "sectionFiveParagraphPart2": "Whether you are an institutional investor or an individual token holder, you can get 5% - 20% profit annually by staking with us. Enjoy transparency and stability of rewards, and our specialists will cover all the maintenance of the enterprise-level hardware.",
+    "sectionFiveParagraphPart3": "Start staking any of the best staking coins with Everstake in minutes:"
+  }
+}

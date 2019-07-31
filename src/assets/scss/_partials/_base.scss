@@ -1,0 +1,40 @@
+html, body, #app {
+  font-family: 'Roboto', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100%;
+  * > {
+    //@include scrollbars(.5em, $blue--deep);
+  }
+}
+
+.pos-rel {
+  position: relative;
+}
+
+.hr {
+  margin: 12px 0;
+  border-top: 1px solid $violet;
+}
+
+.border-round {
+  border-radius: 6px;
+  border: 1px solid $grey--asphalt;
+}
+
+.card-wrapper-small {
+  max-width: 600px;
+}
+
+
+@media (max-width: 768px) and (min-width: 576px) and (orientation: landscape) {
+  html body #pipedrive-chat-holder .css-1mh5r5x-WrapperElement {
+    height: 0;
+  }
+}
+@media (min-width: 576px) {
+  html body #pipedrive-chat-holder .css-jag7s1-Container {
+    right: 16px;
+  }
+}
+

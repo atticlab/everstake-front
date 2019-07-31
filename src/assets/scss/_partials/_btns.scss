@@ -1,0 +1,64 @@
+.btn {
+  background: $blue--bright;
+  border-radius: 6px;
+  box-shadow: 0 11px 16px $shadow--blue;
+  font-size: 21px;
+  color: $white;
+  padding: 18px 30px;
+  line-height: 21px;
+
+  &:hover {
+    background: $blue--bright-45;
+    color: $white;
+  }
+
+  &:active {
+    background: $blue--bright-35;
+  }
+}
+
+.oval-btn {
+  color: $white;
+  width: 193px;
+  height: 42px;
+  font-size: 17px;
+  box-shadow: 0 11px 16px $shadow--dark;
+  border-radius: 100px;
+  border: 1px solid $blue--grey-2;
+  background-color: $blue--grey-3;
+  text-align: center;
+  line-height: 40px;
+  text-decoration: none;
+  transition: background-color 0.2s;
+
+  &:hover {
+    color: $white;
+    text-decoration: none;
+    background-color: $blue--grey-3-30;
+  }
+
+  &:active {
+    background-color: $blue--grey-3-25;
+  }
+}
+
+.send {
+  @extend .border-round;
+  background: transparent;
+  height: 44px;
+  width: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+@media (max-width: 1199px) {
+  .btn {
+    font-size: 17px;
+    padding: 14px 20px;
+  }
+}

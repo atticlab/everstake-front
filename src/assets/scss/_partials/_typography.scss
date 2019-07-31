@@ -1,0 +1,73 @@
+h1, h2, h3, h4, h5, h6,
+p {
+  margin-bottom: 0;
+}
+
+.title {
+  color: $grey;
+  font-family: Helvetica, sans-serif;
+  font-size: 50px;
+  font-weight: 700;
+
+  &--white {
+    color: $white;
+  }
+
+  &--violet{
+    color: $grey--asphalt;
+  }
+
+  &--small {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  &--alt {
+    color: $blue--dark;
+  }
+}
+
+.paragraph {
+  color: $grey--darker;
+  font-size: 21px;
+  line-height: 28px;
+}
+
+.link {
+  color: $white;
+  transition: color 0.2s;
+
+  &:hover {
+    color: $blue--bright;
+    text-decoration: none;
+  }
+}
+
+.break {
+  word-break: break-all;
+}
+
+
+@media (max-width: 1199px) {
+  .title {
+    font-size: 40px;
+
+    &--small {
+      font-size: 16px;
+    }
+  }
+
+  .paragraph {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 575px) {
+  .title {
+    font-size: 20px;
+  }
+
+  .paragraph {
+    font-size: 16px;
+  }
+}

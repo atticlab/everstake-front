@@ -1,0 +1,22 @@
+// These styles don't work in the Sparkline.vue
+.sparkline {
+  .sparkline--cursor {
+    stroke: $grey--steel;
+    stroke-dasharray: 2px;
+    stroke-width: 2px;
+  }
+
+  .sparkline--spot {
+    fill: none;
+    stroke: $green;
+    stroke-width: 3px;
+  }
+
+  .sparkline--fill {
+    fill: none;
+  }
+
+  .sparkline--line {
+    stroke: $green;
+  }
+}
