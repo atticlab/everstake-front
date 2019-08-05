@@ -106,6 +106,7 @@ import NANO from '@/assets/img/coins-presentation/nano.svg';
 import Ontology from '@/assets/img/coins-presentation/ontology.svg';
 import Icon from '@/assets/img/coins-presentation/icon.svg';
 import CasperLabs from '@/assets/img/coins-presentation/casperlabs.svg';
+import Near from '@/assets/img/coins-presentation/near.svg';
 
 
 export default {
@@ -225,6 +226,11 @@ export default {
         },
       ],
       devCoins: [
+        {
+          img: Near,
+          name: 'Near',
+          description: this.$t('home.moreDetails'),
+        },
         {
           img: Icon,
           name: 'Icon',
