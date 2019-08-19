@@ -201,11 +201,11 @@ export default {
           this.chartDataCreatedAddresses = this.mapChartData(data);
           break;
         case 'graph-transaction':
-          data = await this.$coinHistoryApi.txCount(coin);
+          data = await this.$coinHistoryApi.txCount(coin, period, startDate, endDate);
           this.chartDataTxCount = this.mapChartData(data);
           break;
         case 'graph-volumes':
-          data = await this.$coinHistoryApi.txVolume(coin);
+          data = await this.$coinHistoryApi.txVolume(coin, period, startDate, endDate);
           this.chartDataTxVolume = this.mapChartData(data);
           break;
         case 'graph-active-addresses':
