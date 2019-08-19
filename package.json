@@ -15,16 +15,20 @@
     "bootstrap-vue": "^2.0.0-rc.18",
     "chart.js": "^2.8.0",
     "core-js": "^2.6.5",
+    "luxon": "^1.17.2",
     "numeral": "^2.0.6",
     "parallax-js": "^3.1.0",
     "remove-trailing-slash": "^0.1.0",
     "vue": "^2.6.10",
     "vue-chartjs": "^3.4.2",
+    "vue-datetime": "^1.0.0-beta.10",
     "vue-i18n": "^8.0.0",
+    "vue-material": "^1.0.0-beta-11",
     "vue-meta": "^2.2.0",
     "vue-router": "^3.0.3",
     "vue-scrollto": "^2.15.0",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "weekstart": "^1.0.0"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.3.0",

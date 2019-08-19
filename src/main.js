@@ -32,6 +32,8 @@ import wavesApi from './api/wavesApi';
 import eosApi from './api/eosApi';
 
 import i18n from './i18n';
+import coinHistoryApi from './api/coinHistoryApi';
+import coinEOSHistoryApi from './api/coinEOSHistoryApi';
 
 // Use plugins
 Vue.use(BootstrapVue);
@@ -55,6 +57,8 @@ Vue.use(Meta);
 // Global variables
 Vue.prototype.$api = Api;
 Vue.prototype.$coinGeckoApi = CoinGeckoApi;
+Vue.prototype.$coinHistoryApi = coinHistoryApi;
+Vue.prototype.$coinEOSHistoryApi = coinEOSHistoryApi;
 Vue.prototype.$tezosApi = tezosApi;
 Vue.prototype.$cosmosApi = cosmosApi;
 Vue.prototype.$irisnetApi = irisnetApi;

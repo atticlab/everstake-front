@@ -40,6 +40,13 @@
               {{ $t('home.whatIsStaking') }}
             </router-link>
           </li>
+
+          <li class="nav__li">
+            <router-link :to="{ name: 'new_page'}" class="nav__link">
+              {{ $t('home.new_page') }}
+            </router-link>
+          </li>
+
           <li class="nav__li">
             <router-link :to="{ name: 'home' }"
                          class="btn"
@@ -107,11 +114,15 @@ export default {
 
       &:hover {
         color: $blue--bright;
+        text-decoration: none;
       }
 
       &.router-link-exact-active.router-link-active {
         color: $blue--bright;
       }
+    }
+    .btn {
+      text-decoration: none;
     }
   }
 

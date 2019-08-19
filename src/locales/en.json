@@ -9,6 +9,7 @@
     "coins": "Coins",
     "team": "Team",
     "support": "Support",
+    "new_page": "New Page",
     "stakingService": "Staking Service Platform",
     "everstakeHelps": "Everstake helps institutional investors and regular token holders\nto profit off their crypto assets. We operate in a wide range of\nProof of Stake blockchains, providing our customers with numerous\noptions to choose from. Pick the most promising projects, delegate\nwith Everstake and make 5%-20% annually.",
     "everstakeHelpsShort": "Everstake helps institutional investors and regular token holders to profit off their crypto assets.",
@@ -188,5 +189,8 @@
     "sectionFiveParagraph": "Everstake is built by professionals who have been cryptocurrency enthusiasts for several years so far. We have great hands-on experience in building blockchain products of all kinds, ranging from small developer tools and comfortable mobile wallets to exchanges and sophisticated business-oriented enterprise level blockchain tools.",
     "sectionFiveParagraphPart2": "Whether you are an institutional investor or an individual token holder, you can get 5% - 20% profit annually by staking with us. Enjoy transparency and stability of rewards, and our specialists will cover all the maintenance of the enterprise-level hardware.",
     "sectionFiveParagraphPart3": "Start staking any of the best staking coins with Everstake in minutes:"
+  },
+  "NewPage": {
+    "NewPageTitle": "In sed habitasse"
   }
 }
