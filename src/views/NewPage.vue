@@ -73,54 +73,65 @@
                 <b-col v-if="(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
-                  <span>{{chartDataBlocksSize}} dfddfgfdgdf</span>
                   <div class="chart" v-if="chartDataBlocks">
                     <h4>{{ $t('NewPage.ChartBlocks') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataBlocks"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                   <div class="chart" v-if="chartDataCreatedAddresses">
                     <h4>{{ $t('NewPage.ChartCreatedAddresses') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataCreatedAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                   <div class="chart" v-if="chartDataActiveAddresses">
                     <h4>{{ $t('NewPage.ChartActiveAddresses') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataActiveAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                   <div class="chart" v-if="chartDataTotalAddresses">
                     <h4>{{ $t('NewPage.ChartTotalAddresses') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataTotalAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxCount">
                     <h4>{{ $t('NewPage.ChartTransactionsCount') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataTxCount"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxVolume">
                     <h4>{{ $t('NewPage.ChartTransactionVolumes') }}</h4>
                     <HistoryChart
+                      v-if="chartDataBlocksSize"
                       :data="chartDataTxVolume"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
+                    <h5 v-else>No data</h5>
                   </div>
                 </b-col>
               </div>
@@ -132,8 +143,8 @@
                 </h2>
                 <iframe
                   src="https://docs.google.com/forms/d/e/1FAIpQLScZJrmU3zB1C8Kcnr_MsEqwZlJA5fa9H6deUraljnCtrqfu2A/viewform?embedded=true"
-                  width="200"
-                  height="300"
+                  width="639"
+                  height="710"
                   frameborder="0"
                   marginheight="0"
                   marginwidth="0">
@@ -221,22 +232,27 @@ export default {
         case 'graph-total':
           data = await coinHistoryApi.createdAddresses(coin, period, startDate, endDate);
           this.chartDataCreatedAddresses = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
         case 'graph-transaction':
           data = await coinHistoryApi.txCount(coin, period, startDate, endDate);
           this.chartDataTxCount = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
         case 'graph-volumes':
           data = await coinHistoryApi.txVolume(coin, period, startDate, endDate);
           this.chartDataTxVolume = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
         case 'graph-active-addresses':
           data = await coinHistoryApi.activeAddresses(coin, period, startDate, endDate);
           this.chartDataActiveAddresses = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
         case 'graph-addresses':
           data = await coinHistoryApi.totalAddresses(coin, period, startDate, endDate);
           this.chartDataTotalAddresses = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
       }
     },
@@ -399,6 +415,9 @@ export default {
   }
   .chart-form {
     padding: 140px 30px 0 30px;
+  }
+  .chart-form iframe:not(.md-image) {
+    height: 720px;
   }
 
   .new-page-sidebar, .new-page-chart-wrap {
