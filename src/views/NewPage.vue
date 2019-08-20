@@ -194,11 +194,7 @@ export default {
       }
       this.clearCharts();
       try {
-        if (this.selectedCoin === 'eos') {
-          this.selectedCharts.forEach(this.processEosType);
-        } else {
-          this.selectedCharts.forEach(this.processChartType);
-        }
+        this.selectedCharts.forEach(this.processChartType);
       } catch (err) {
         console.error(err);
       }
@@ -209,29 +205,35 @@ export default {
       const endDate = +new Date(this.selectedEndDate);
       const period = this.selectedTimespan;
       let data;
+      let coinHistoryApi;
+      if (this.selectedCoin === 'eos') {
+        coinHistoryApi = this.$coinEOSHistoryApi;
+      } else {
+        coinHistoryApi = this.$coinHistoryApi;
+      }
       switch (type) {
         case 'graph-blocks':
-          data = await this.$coinHistoryApi.getBlocks(coin, period, startDate, endDate);
+          data = await coinHistoryApi.getBlocks(coin, period, startDate, endDate);
           this.chartDataBlocks = this.mapChartData(data);
           break;
         case 'graph-total':
-          data = await this.$coinHistoryApi.createdAddresses(coin, period, startDate, endDate);
+          data = await coinHistoryApi.createdAddresses(coin, period, startDate, endDate);
           this.chartDataCreatedAddresses = this.mapChartData(data);
           break;
         case 'graph-transaction':
-          data = await this.$coinHistoryApi.txCount(coin, period, startDate, endDate);
+          data = await coinHistoryApi.txCount(coin, period, startDate, endDate);
           this.chartDataTxCount = this.mapChartData(data);
           break;
         case 'graph-volumes':
-          data = await this.$coinHistoryApi.txVolume(coin, period, startDate, endDate);
+          data = await coinHistoryApi.txVolume(coin, period, startDate, endDate);
           this.chartDataTxVolume = this.mapChartData(data);
           break;
         case 'graph-active-addresses':
-          data = await this.$coinHistoryApi.activeAddresses(coin, period, startDate, endDate);
+          data = await coinHistoryApi.activeAddresses(coin, period, startDate, endDate);
           this.chartDataActiveAddresses = this.mapChartData(data);
           break;
         case 'graph-addresses':
-          data = await this.$coinHistoryApi.totalAddresses(coin, period, startDate, endDate);
+          data = await coinHistoryApi.totalAddresses(coin, period, startDate, endDate);
           this.chartDataTotalAddresses = this.mapChartData(data);
           break;
       }
@@ -267,39 +269,6 @@ export default {
           },
         ],
       };
-    },
-    async processEosType(type) {
-      const coin = this.selectedCoin;
-      const startDate = +new Date(this.selectedStartDate);
-      const endDate = +new Date(this.selectedEndDate);
-      const period = this.selectedTimespan;
-      let data;
-      switch (type) {
-        case 'graph-blocks':
-          data = await this.$coinEOSHistoryApi.getBlocks(coin, period, startDate, endDate);
-          this.chartDataBlocks = this.mapChartData(data);
-          break;
-        case 'graph-total':
-          data = await this.$coinEOSHistoryApi.createdAddresses(coin, period, startDate, endDate);
-          this.chartDataCreatedAddresses = this.mapChartData(data);
-          break;
-        case 'graph-transaction':
-          // data = await this.$coinEOSHistoryApi.txCount(coin);
-          this.chartDataTxCount = this.mapChartData(data);
-          break;
-        case 'graph-volumes':
-          data = await this.$coinEOSHistoryApi.txVolume(coin);
-          this.chartDataTxVolume = this.mapChartData(data);
-          break;
-        case 'graph-active-addresses':
-          data = await this.$coinEOSHistoryApi.activeAddresses(coin, period, startDate, endDate);
-          this.chartDataActiveAddresses = this.mapChartData(data);
-          break;
-        case 'graph-addresses':
-          data = await this.$coinEOSHistoryApi.totalAddresses(coin, period, startDate, endDate);
-          this.chartDataTotalAddresses = this.mapChartData(data);
-          break;
-      }
     },
     checkFields() {
       const check = (this.selectedCoin
