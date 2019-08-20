@@ -126,7 +126,7 @@ export default {
     }
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1366px) {
     .logo {
       max-width: 200px;
     }
@@ -137,6 +137,12 @@ export default {
 
     .nav__link {
       font-size: 17px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .nav__li {
+      padding-right: 15px;
     }
   }
 

@@ -16,18 +16,18 @@
           <b-col md="3">
             <div class="new-page-sidebar">
               <div class="single-select" ref="singleSelect">
-                <h3>Choose blockchain:</h3>
+                <h3>{{ $t('NewPage.NewPageChooseBlockchain') }}</h3>
                 <md-field>
-                  <label for="graph">Select prefered blockchain</label>
+                  <label for="graph">{{ $t('NewPage.NewPageLabelSelect') }}</label>
                   <md-select v-model="selectedCoin" name="selectedCoin" id="single-graph">
-                    <md-option  v-for="coin in coins" :value=coin[0]>{{coin[1]}}</md-option>
+                    <md-option v-for="coin in coins" :value=coin[0]>{{coin[1]}}</md-option>
                   </md-select>
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>Select chart types:</h3>
+                <h3>{{ $t('NewPage.NewPageChooseSelectChart') }}</h3>
                 <md-field class="multiple-select-block">
-                  <label for="graph">Select prefered graphs</label>
+                  <label for="graph">{{ $t('NewPage.NewPageLabelMultipleselect') }}</label>
                   <md-select v-model="selectedCharts" name="graph" id="multiple-graph" multiple>
                     <md-option v-for="type in chartTypes" :value=type[0]>{{type[1]}}
                     </md-option>
@@ -35,9 +35,9 @@
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>Select timespan:</h3>
+                <h3>{{ $t('NewPage.NewPageTimespan') }}</h3>
                 <md-field>
-                  <label for="graph">Select charts</label>
+                  <label for="graph">{{ $t('NewPage.NewPageSelectCharts') }}</label>
                   <md-select v-model="selectedTimespan" name="graph" id="single-graph-data">
                     <md-option v-for="timespan in timespans" :value=timespan[0]>{{timespan[1]}}
                     </md-option>
@@ -46,95 +46,113 @@
               </div>
 
               <div class="multiple-select">
-                <h3>Start date:</h3>
+                <h3>{{ $t('NewPage.NewPageStartDate') }}</h3>
                 <datetime v-model="selectedStartDate" placeholder="Select start date"></datetime>
               </div>
               <div class="multiple-select">
-                <h3>End date:</h3>
+                <h3>{{ $t('NewPage.NewPageEndDate') }}</h3>
                 <datetime v-model="selectedEndDate" placeholder="Select end date"></datetime>
               </div>
 
               <div v-if="applyWarn" class="apply-warning">
-                <h4>Fill all fields, please</h4>
+                <h4>{{ $t('NewPage.NewPageWarning') }}</h4>
               </div>
-              <button class="btn-apply" @click="handleApply()">Apply</button>
+              <button class="btn-apply" @click="handleApply()">{{ $t('NewPage.NewPageApply') }}</button>
             </div>
 
           </b-col>
           <b-col md="9">
-            <div class="new-page-chart">
-              <div class="choose-block" v-if="!(chartDataBlocks || chartDataTxCount ||
+            <div class="new-page-chart-wrap">
+              <div class="new-page-chart">
+                <div class="choose-block" v-if="!(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
-                <img :src="ChooseImg" alt="choose img">
-                <h4>Choose a Blockchain and Pick Date</h4>
+                  <img :src="ChooseImg" alt="choose img">
+                  <h4>{{ $t('NewPage.NewPageChoose') }}</h4>
+                </div>
+                <b-col v-if="(chartDataBlocks || chartDataTxCount ||
+              chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
+              chartDataActiveAddresses || chartDataTotalAddresses)">
+                  <div class="chart" v-if="chartDataBlocks">
+                    <h4>{{ $t('NewPage.ChartBlocks') }}</h4>
+                    <HistoryChart
+                      :data="chartDataBlocks"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                  <div class="chart" v-if="chartDataCreatedAddresses">
+                    <h4>{{ $t('NewPage.ChartCreatedAddresses') }}</h4>
+                    <HistoryChart
+                      :data="chartDataCreatedAddresses"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                  <div class="chart" v-if="chartDataActiveAddresses">
+                    <h4>{{ $t('NewPage.ChartActiveAddresses') }}</h4>
+                    <HistoryChart
+                      :data="chartDataActiveAddresses"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                  <div class="chart" v-if="chartDataTotalAddresses">
+                    <h4>{{ $t('NewPage.ChartTotalAddresses') }}</h4>
+                    <HistoryChart
+                      :data="chartDataTotalAddresses"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                  <div class="chart" v-if="chartDataTxCount">
+                    <h4>{{ $t('NewPage.ChartTransactionsCount') }}</h4>
+                    <HistoryChart
+                      :data="chartDataTxCount"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                  <div class="chart" v-if="chartDataTxVolume">
+                    <h4>{{ $t('NewPage.ChartTransactionVolumes') }}</h4>
+                    <HistoryChart
+                      :data="chartDataTxVolume"
+                      :options="chartOptions"
+                      :styles="chartStyles">
+                    </HistoryChart>
+                  </div>
+                </b-col>
               </div>
-            <b-col v-if="(chartDataBlocks || chartDataTxCount ||
-              chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
-              chartDataActiveAddresses || chartDataTotalAddresses)">
-            <div class="chart" v-if="chartDataBlocks">
-              <h4>Blocks</h4>
-              <HistoryChart
-                :data="chartDataBlocks"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-            <div class="chart" v-if="chartDataTxCount">
-              <h4>Transactions count</h4>
-              <HistoryChart
-                :data="chartDataTxCount"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-            <div class="chart" v-if="chartDataTxVolume">
-              <h4>Transactions volume</h4>
-              <HistoryChart
-                :data="chartDataTxVolume"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-            <div class="chart" v-if="chartDataCreatedAddresses">
-              <h4>Created Addresses</h4>
-              <HistoryChart
-                :data="chartDataCreatedAddresses"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-            <div class="chart" v-if="chartDataActiveAddresses">
-              <h4>Active addresses</h4>
-              <HistoryChart
-                :data="chartDataActiveAddresses"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-            <div class="chart" v-if="chartDataTotalAddresses">
-              <h4>Total addresses</h4>
-              <HistoryChart
-                :data="chartDataTotalAddresses"
-                :options="chartOptions"
-                :styles="chartStyles">
-              </HistoryChart>
-            </div>
-              </b-col>
+
+              <div class="chart-form">
+                <h2 class="title title--grey text-capitalize">
+                  {{ $t('NewPage.NewPageFormTitle') }}
+                  <Underline></Underline>
+                </h2>
+                <iframe
+                  src="https://docs.google.com/forms/d/e/1FAIpQLScZJrmU3zB1C8Kcnr_MsEqwZlJA5fa9H6deUraljnCtrqfu2A/viewform?embedded=true"
+                  width="200"
+                  height="300"
+                  frameborder="0"
+                  marginheight="0"
+                  marginwidth="0">
+                  Загрузка…
+                </iframe>
+              </div>
             </div>
           </b-col>
         </b-row>
       </b-container>
     </div>
 
-<!--    <Footer :isInternal="true"></Footer>-->
+    <Footer></Footer>
   </section>
 </template>
 
 
 <script>
 import Header from '@/components/Header.vue';
-// import Footer from '@/components/footer/Footer.vue';
+import Footer from '@/components/footer/Footer.vue';
 import Underline from '@/components/_ui-elements/Underline.vue';
 
 import { Datetime } from 'vue-datetime';
@@ -165,7 +183,7 @@ export default {
     HistoryChart,
     Header,
     Underline,
-    // Footer,
+    Footer,
     datetime: Datetime,
   },
   methods: {
@@ -227,9 +245,6 @@ export default {
       this.chartDataTotalAddresses = undefined;
     },
     mapChartData(data) {
-      console.log('DATA', data.data);
-      // console.log('date', data.data.map(item => item.date));
-      // console.log('count', data.data.map(item => item.count));
       return {
         labels: data.data.map(item => new Date(item.date * 1000).toLocaleString()),
         datasets: [
@@ -240,10 +255,10 @@ export default {
             pointBackgroundColor: '#444F5B',
             pointHoverBackgroundColor: '#444F5B',
             pointHoverBorderColor: '#444F5B',
-            pointBorderWidth: 1,
-            pointHoverRadius: 1,
-            pointHoverBorderWidth: 1,
-            pointRadius: 1,
+            pointBorderWidth: 1.5,
+            pointHoverRadius: 1.5,
+            pointHoverBorderWidth: 1.5,
+            pointRadius: 1.5,
             fill: true,
             backgroundColor: '',
             borderWidth: 2,
@@ -261,10 +276,8 @@ export default {
       let data;
       switch (type) {
         case 'graph-blocks':
-          console.log('blocks');
           data = await this.$coinEOSHistoryApi.getBlocks(coin, period, startDate, endDate);
           this.chartDataBlocks = this.mapChartData(data);
-          console.log(this.chartDataBlocks);
           break;
         case 'graph-total':
           data = await this.$coinEOSHistoryApi.createdAddresses(coin, period, startDate, endDate);
@@ -314,6 +327,7 @@ export default {
       selectedEndDate: undefined,
       chartsData: undefined,
       applyWarn: false,
+      length: [],
 
       chartDataBlocks: undefined,
       chartDataTxCount: undefined,
@@ -402,43 +416,54 @@ export default {
   .multiple-select {
     margin-top: 16px;
   }
+
   .new-page-wrap {
-    padding-top: 140px;
+    padding: 140px 0;
+    background: linear-gradient(180deg, rgba(251, 251, 252, 0) 0%, #C2DCF7 100%);
   }
+
   .new-page-wrap h2 {
     padding-bottom: 80px;
   }
-  .new-page-sidebar, .new-page-chart {
+  .chart-form {
+    padding: 140px 30px 0 30px;
+  }
+
+  .new-page-sidebar, .new-page-chart-wrap {
     padding: 24px;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(215, 222, 227, 0.39422), 0px 26px 90px rgba(51, 59, 69, 0.1);
     border-radius: 6px;
   }
+
   .new-page-chart {
     padding: 24px 40px;
     min-height: 488px;
     display: flex;
     justify-content: center;
   }
+
   .chart {
     height: 388px;
     padding-top: 20px;
     margin-bottom: 80px;
   }
+
   .chart h4 {
     margin: 0;
     padding-top: 20px;
-    padding-bottom: 20px;
+    padding-bottom: 30px;
     font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    color: #8D939D;
+    font-weight: 500;
+    font-size: 24px;
+    color: #54617A;
   }
+
   .apply-warning {
     padding-top: 20px;
     justify-content: center;
   }
+
   .apply-warning h4 {
     font-family: Roboto;
     font-style: normal;
@@ -446,12 +471,14 @@ export default {
     font-size: 15px;
     color: firebrick;
   }
+
   .choose-block {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
+
   .choose-block h4 {
     margin: 0;
     padding-top: 40px;
@@ -461,6 +488,7 @@ export default {
     font-size: 21px;
     color: #8D939D;
   }
+
   .new-page-sidebar h3 {
     margin: 0;
     padding-bottom: 8px;
@@ -473,6 +501,7 @@ export default {
     color: #69758B;
     line-height: 40px;
   }
+
   .btn-apply {
     margin-top: 32px;
     padding: 10px 10px;
@@ -493,10 +522,12 @@ export default {
     color: #FFFFFF;
     transition: .3s ease-in-out;
   }
+
   .btn-apply:hover {
     box-shadow: none;
     transform: translateY(1px);
   }
+
   .multiple-select .vdatetime input {
     padding: 9px 15px;
     width: 100%;
@@ -509,9 +540,11 @@ export default {
   .md-menu-content {
     box-shadow: none;
   }
+
   .multiple-select-block {
     position: relative;
   }
+
   .md-menu-content-container {
     position: absolute;
     top: 48px;
@@ -519,25 +552,31 @@ export default {
     background: #fff;
     box-shadow: 0px 0px 20px rgba(215, 222, 227, 0.39422), 0px 26px 90px rgba(51, 59, 69, 0.1);
   }
+
   .md-field {
     margin: 0;
     padding-top: 0;
     min-height: auto;
   }
+
   .new-page-sidebar input, .md-field label {
     font-size: 12px;
   }
+
   .new-page-wrap .md-menu.md-select .md-input {
     font-size: 12px;
     -webkit-text-fill-color: #8D939D;
   }
+
   .md-field label {
     color: #8D939D;
     top: 5px;
   }
+
   .md-field.md-theme-default.md-focused label, .md-field.md-theme-default.md-has-value label {
     display: none;
   }
+
   .md-list-item-text {
     display: flex;
     font-family: Roboto;
@@ -549,20 +588,24 @@ export default {
   }
 
   .md-checkbox.md-theme-default .md-checkbox-container {
-    border-color: rgba(0,0,0,0.54);
+    border-color: rgba(0, 0, 0, 0.54);
   }
+
   .md-checkbox.md-theme-default.md-checked.md-primary .md-checkbox-container {
     background-color: #448aff;
     background-color: var(--md-theme-default-primary, #448aff);
     border-color: #448aff;
     border-color: var(--md-theme-default-primary, #448aff);
   }
+
   .md-checkbox.md-theme-default.md-checked .md-checkbox-container:after {
     border-color: #fff;
     border-color: var(--md-theme-default-background, #fff);
   }
+
   .md-field {
     border-bottom: 1px solid #D4D7DD;
   }
+
   /*Select style*/
 </style>

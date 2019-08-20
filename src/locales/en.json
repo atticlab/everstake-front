@@ -191,6 +191,24 @@
     "sectionFiveParagraphPart3": "Start staking any of the best staking coins with Everstake in minutes:"
   },
   "NewPage": {
-    "NewPageTitle": "In sed habitasse"
+    "NewPageTitle": "In sed habitasse",
+    "NewPageFormTitle": "Didn’t find what you need?",
+    "NewPageChooseBlockchain": "Choose blockchain:",
+    "NewPageLabelSelect": "Select prefered blockchain",
+    "NewPageChooseSelectChart": "Select chart types:",
+    "NewPageLabelMultipleselect": "Select prefered graphs",
+    "NewPageTimespan": "Select timespan:",
+    "NewPageSelectCharts": "Select charts",
+    "NewPageStartDate": "Start date:",
+    "NewPageEndDate": "End date:",
+    "NewPageWarning": "Fill all fields, please",
+    "NewPageApply": "Apply",
+    "NewPageChoose": "Choose a Blockchain and Pick Date",
+    "ChartBlocks": "Number of blocks",
+    "ChartCreatedAddresses": "Number of addresses created",
+    "ChartActiveAddresses": "Number of active addresses",
+    "ChartTotalAddresses": "Total number of addresses",
+    "ChartTransactionsCount": "Number of transactions",
+    "ChartTransactionVolumes": "Transaction volumes"
   }
 }
