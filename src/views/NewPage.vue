@@ -73,6 +73,7 @@
                 <b-col v-if="(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
+                  <span>{{chartDataBlocksSize}} dfddfgfdgdf</span>
                   <div class="chart" v-if="chartDataBlocks">
                     <h4>{{ $t('NewPage.ChartBlocks') }}</h4>
                     <HistoryChart
@@ -215,6 +216,7 @@ export default {
         case 'graph-blocks':
           data = await coinHistoryApi.getBlocks(coin, period, startDate, endDate);
           this.chartDataBlocks = this.mapChartData(data);
+          this.chartDataBlocksSize = data.data.length;
           break;
         case 'graph-total':
           data = await coinHistoryApi.createdAddresses(coin, period, startDate, endDate);
@@ -298,6 +300,7 @@ export default {
       applyWarn: false,
       length: [],
 
+      chartDataBlocksSize: 0,
       chartDataBlocks: undefined,
       chartDataTxCount: undefined,
       chartDataTxVolume: undefined,
