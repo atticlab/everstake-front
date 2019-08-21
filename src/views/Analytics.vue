@@ -4,7 +4,7 @@
       <Header :isInternal="true"></Header>
     </b-container>
 
-    <div class="new-page-wrap">
+    <div class="analytics-wrap">
       <b-container>
         <b-row>
           <b-col md="12">
@@ -14,7 +14,7 @@
             </h2>
           </b-col>
           <b-col md="3">
-            <div class="new-page-sidebar">
+            <div class="analytics-sidebar">
               <div class="single-select" ref="singleSelect">
                 <h3>{{ $t('Analytics.AnalyticsChooseBlockchain') }}</h3>
                 <md-field>
@@ -62,8 +62,8 @@
 
           </b-col>
           <b-col md="9">
-            <div class="new-page-chart-wrap">
-              <div class="new-page-chart">
+            <div class="analytics-chart-wrap">
+              <div class="analytics-chart">
                 <div class="choose-block" v-if="!(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
@@ -386,7 +386,11 @@ export default {
     },
   },
   mounted() {
-    this.coins = [['tezos', 'Tezos'], ['cosmos', 'Cosmos'], ['eos', 'EOS']]; // will get from endpoint
+    this.coins = [
+      ['tezos', 'Tezos'],
+      ['cosmos', 'Cosmos'],
+      // ['eos', 'EOS'],
+    ]; // will get from endpoint
     this.timespans = [['hour', 'One hour'], ['day', 'One day'], ['week', 'One week'], ['month', 'One month']];
     this.chartTypes = [['graph-blocks', 'Number of blocks'], ['graph-addresses', 'Number of addresses created'],
       ['graph-active-addresses', 'Number of active addresses'], ['graph-total', 'Total number of addresses'],
@@ -401,30 +405,31 @@ export default {
     margin-top: 16px;
   }
 
-  .new-page-wrap {
+  .analytics-wrap {
     padding: 140px 0;
     background: linear-gradient(180deg, rgba(251, 251, 252, 0) 0%, #C2DCF7 100%);
   }
 
-  .new-page-wrap h2 {
+  .analytics-wrap h2 {
     padding-bottom: 80px;
   }
   .chart-form {
     padding: 140px 30px 0 30px;
+    text-align: center;
   }
   .chart-form iframe:not(.md-image) {
     height: 720px;
   }
 
-  .new-page-sidebar, .new-page-chart-wrap {
+  .analytics-sidebar, .analytics-chart-wrap {
     padding: 24px;
     background: #FFFFFF;
     box-shadow: 0px 0px 20px rgba(215, 222, 227, 0.39422), 0px 26px 90px rgba(51, 59, 69, 0.1);
     border-radius: 6px;
   }
 
-  .new-page-chart {
-    padding: 24px 40px;
+  .analytics-chart {
+    padding: 24px 0;
     min-height: 488px;
     display: flex;
     justify-content: center;
@@ -476,7 +481,7 @@ export default {
     color: #8D939D;
   }
 
-  .new-page-sidebar h3 {
+  .analytics-sidebar h3 {
     margin: 0;
     padding-bottom: 8px;
     display: flex;
@@ -546,11 +551,11 @@ export default {
     min-height: auto;
   }
 
-  .new-page-sidebar input, .md-field label {
+  .analytics-sidebar input, .md-field label {
     font-size: 12px;
   }
 
-  .new-page-wrap .md-menu.md-select .md-input {
+  .analytics-wrap .md-menu.md-select .md-input {
     font-size: 12px;
     -webkit-text-fill-color: #8D939D;
   }
