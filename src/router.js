@@ -97,9 +97,9 @@ export default new Router({
       component: () => import('./views/StakingPage.vue'),
     },
     {
-      path: '/new_page',
-      name: 'new_page',
-      component: () => import('./views/NewPage.vue'),
+      path: '/analytics',
+      name: 'analytics',
+      component: () => import('./views/Analytics.vue'),
     },
   ],
   scrollBehavior(to, from, savedPosition) {

@@ -42,8 +42,8 @@
           </li>
 
           <li class="nav__li">
-            <router-link :to="{ name: 'new_page'}" class="nav__link">
-              {{ $t('home.new_page') }}
+            <router-link :to="{ name: 'analytics'}" class="nav__link">
+              {{ $t('home.analytics') }}
             </router-link>
           </li>
 

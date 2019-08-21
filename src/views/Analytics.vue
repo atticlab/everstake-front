@@ -9,25 +9,25 @@
         <b-row>
           <b-col md="12">
             <h2 class="title title--grey text-capitalize">
-              {{ $t('NewPage.NewPageTitle') }}
+              {{ $t('Analytics.AnalyticsTitle') }}
               <Underline></Underline>
             </h2>
           </b-col>
           <b-col md="3">
             <div class="new-page-sidebar">
               <div class="single-select" ref="singleSelect">
-                <h3>{{ $t('NewPage.NewPageChooseBlockchain') }}</h3>
+                <h3>{{ $t('Analytics.AnalyticsChooseBlockchain') }}</h3>
                 <md-field>
-                  <label for="graph">{{ $t('NewPage.NewPageLabelSelect') }}</label>
+                  <label for="graph">{{ $t('Analytics.AnalyticsLabelSelect') }}</label>
                   <md-select v-model="selectedCoin" name="selectedCoin" id="single-graph">
                     <md-option v-for="coin in coins" :value=coin[0]>{{coin[1]}}</md-option>
                   </md-select>
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('NewPage.NewPageChooseSelectChart') }}</h3>
+                <h3>{{ $t('Analytics.AnalyticsChooseSelectChart') }}</h3>
                 <md-field class="multiple-select-block">
-                  <label for="graph">{{ $t('NewPage.NewPageLabelMultipleselect') }}</label>
+                  <label for="graph">{{ $t('Analytics.AnalyticsLabelMultipleselect') }}</label>
                   <md-select v-model="selectedCharts" name="graph" id="multiple-graph" multiple>
                     <md-option v-for="type in chartTypes" :value=type[0]>{{type[1]}}
                     </md-option>
@@ -35,9 +35,9 @@
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('NewPage.NewPageTimespan') }}</h3>
+                <h3>{{ $t('Analytics.AnalyticsTimespan') }}</h3>
                 <md-field>
-                  <label for="graph">{{ $t('NewPage.NewPageSelectCharts') }}</label>
+                  <label for="graph">{{ $t('Analytics.AnalyticsSelectCharts') }}</label>
                   <md-select v-model="selectedTimespan" name="graph" id="single-graph-data">
                     <md-option v-for="timespan in timespans" :value=timespan[0]>{{timespan[1]}}
                     </md-option>
@@ -46,18 +46,18 @@
               </div>
 
               <div class="multiple-select">
-                <h3>{{ $t('NewPage.NewPageStartDate') }}</h3>
+                <h3>{{ $t('Analytics.AnalyticsStartDate') }}</h3>
                 <datetime v-model="selectedStartDate" placeholder="Select start date"></datetime>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('NewPage.NewPageEndDate') }}</h3>
+                <h3>{{ $t('Analytics.AnalyticsEndDate') }}</h3>
                 <datetime v-model="selectedEndDate" placeholder="Select end date"></datetime>
               </div>
 
               <div v-if="applyWarn" class="apply-warning">
-                <h4>{{ $t('NewPage.NewPageWarning') }}</h4>
+                <h4>{{ $t('Analytics.AnalyticsWarning') }}</h4>
               </div>
-              <button class="btn-apply" @click="handleApply()">{{ $t('NewPage.NewPageApply') }}</button>
+              <button class="btn-apply" @click="handleApply()">{{ $t('Analytics.AnalyticsApply') }}</button>
             </div>
 
           </b-col>
@@ -68,79 +68,75 @@
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
                   <img :src="ChooseImg" alt="choose img">
-                  <h4>{{ $t('NewPage.NewPageChoose') }}</h4>
+                  <h4>{{ $t('Analytics.AnalyticsChoose') }}</h4>
                 </div>
                 <b-col v-if="(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
                   <div class="chart" v-if="chartDataBlocks">
-                    <h4>{{ $t('NewPage.ChartBlocks') }}</h4>
+                    <h4>{{ $t('Analytics.ChartBlocks') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataBlocks"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataCreatedAddresses">
-                    <h4>{{ $t('NewPage.ChartCreatedAddresses') }}</h4>
+                    <h4>{{ $t('Analytics.ChartCreatedAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataCreatedAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataActiveAddresses">
-                    <h4>{{ $t('NewPage.ChartActiveAddresses') }}</h4>
+                    <h4>{{ $t('Analytics.ChartActiveAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataActiveAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTotalAddresses">
-                    <h4>{{ $t('NewPage.ChartTotalAddresses') }}</h4>
+                    <h4>{{ $t('Analytics.ChartTotalAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTotalAddresses"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxCount">
-                    <h4>{{ $t('NewPage.ChartTransactionsCount') }}</h4>
+                    <h4>{{ $t('Analytics.ChartTransactionsCount') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTxCount"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxVolume">
-                    <h4>{{ $t('NewPage.ChartTransactionVolumes') }}</h4>
+                    <h4>{{ $t('Analytics.ChartTransactionVolumes') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTxVolume"
                       :options="chartOptions"
                       :styles="chartStyles">
                     </HistoryChart>
-                    <h5 v-else>No data</h5>
+                    <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                 </b-col>
               </div>
 
               <div class="chart-form">
-                <h2 class="title title--grey text-capitalize">
-                  {{ $t('NewPage.NewPageFormTitle') }}
-                  <Underline></Underline>
-                </h2>
                 <iframe
                   src="https://docs.google.com/forms/d/e/1FAIpQLScZJrmU3zB1C8Kcnr_MsEqwZlJA5fa9H6deUraljnCtrqfu2A/viewform?embedded=true"
                   width="639"
@@ -157,7 +153,7 @@
       </b-container>
     </div>
 
-    <Footer></Footer>
+    <Footer :isInternal="true"></Footer>
   </section>
 </template>
 
@@ -180,7 +176,7 @@ Vue.config.productionTip = false;
 Vue.use(VueMaterial);
 
 export default {
-  name: 'NewPage',
+  name: 'Analytics',
   metaInfo: {
     title: 'Everstake — Staking Service Platform, Staking provider',
     meta: [
@@ -273,11 +269,11 @@ export default {
             borderColor: '#444F5B',
             pointBorderColor: '#444F5B',
             pointBackgroundColor: '#444F5B',
-            pointHoverBackgroundColor: '#444F5B',
+            pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: '#444F5B',
             pointBorderWidth: 1.5,
-            pointHoverRadius: 1.5,
-            pointHoverBorderWidth: 1.5,
+            pointHoverRadius: 4,
+            pointHoverBorderWidth: 1,
             pointRadius: 1.5,
             fill: true,
             backgroundColor: '',
