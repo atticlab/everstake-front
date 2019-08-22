@@ -44,11 +44,13 @@
     color: $grey;
     font-size: 21px;
     font-weight: 500;
+    line-height: 31.5px;
     transition: color 0.2s;
     text-transform: capitalize;
 
     &:hover {
       color:$blue--bright;
+      text-decoration: none;
     }
 
     &:active {
