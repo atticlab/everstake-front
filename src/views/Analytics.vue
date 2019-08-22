@@ -14,20 +14,20 @@
             </h2>
           </b-col>
           <b-col md="3">
-            <div class="analytics-sidebar">
+            <div class="analytics-wrap__sidebar">
               <div class="single-select" ref="singleSelect">
-                <h3>{{ $t('Analytics.AnalyticsChooseBlockchain') }}</h3>
+                <h3 class="analytics-wrap__sidebar__title">{{ $t('Analytics.AnalyticsChooseBlockchain') }}</h3>
                 <md-field>
-                  <label for="graph">{{ $t('Analytics.AnalyticsLabelSelect') }}</label>
+                  <label class="label-form" for="graph">{{ $t('Analytics.AnalyticsLabelSelect') }}</label>
                   <md-select v-model="selectedCoin" name="selectedCoin" id="single-graph">
                     <md-option v-for="coin in coins" :value=coin[0]>{{coin[1]}}</md-option>
                   </md-select>
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('Analytics.AnalyticsChooseSelectChart') }}</h3>
-                <md-field class="multiple-select-block">
-                  <label for="graph">{{ $t('Analytics.AnalyticsLabelMultipleselect') }}</label>
+                <h3 class="analytics-wrap__sidebar__title">{{ $t('Analytics.AnalyticsChooseSelectChart') }}</h3>
+                <md-field class="multiple-select__block">
+                  <label class="label-form" for="graph">{{ $t('Analytics.AnalyticsLabelMultipleselect') }}</label>
                   <md-select v-model="selectedCharts" name="graph" id="multiple-graph" multiple>
                     <md-option v-for="type in chartTypes" :value=type[0]>{{type[1]}}
                     </md-option>
@@ -35,9 +35,9 @@
                 </md-field>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('Analytics.AnalyticsTimespan') }}</h3>
+                <h3 class="analytics-wrap__sidebar__title">{{ $t('Analytics.AnalyticsTimespan') }}</h3>
                 <md-field>
-                  <label for="graph">{{ $t('Analytics.AnalyticsSelectCharts') }}</label>
+                  <label class="label-form" for="graph">{{ $t('Analytics.AnalyticsSelectCharts') }}</label>
                   <md-select v-model="selectedTimespan" name="graph" id="single-graph-data">
                     <md-option v-for="timespan in timespans" :value=timespan[0]>{{timespan[1]}}
                     </md-option>
@@ -46,35 +46,35 @@
               </div>
 
               <div class="multiple-select">
-                <h3>{{ $t('Analytics.AnalyticsStartDate') }}</h3>
+                <h3 class="analytics-wrap__sidebar__title">{{ $t('Analytics.AnalyticsStartDate') }}</h3>
                 <datetime v-model="selectedStartDate" placeholder="Select start date"></datetime>
               </div>
               <div class="multiple-select">
-                <h3>{{ $t('Analytics.AnalyticsEndDate') }}</h3>
+                <h3 class="analytics-wrap__sidebar__title">{{ $t('Analytics.AnalyticsEndDate') }}</h3>
                 <datetime v-model="selectedEndDate" placeholder="Select end date"></datetime>
               </div>
 
               <div v-if="applyWarn" class="apply-warning">
-                <h4>{{ $t('Analytics.AnalyticsWarning') }}</h4>
+                <h4 class="apply-warning__text">{{ $t('Analytics.AnalyticsWarning') }}</h4>
               </div>
               <button class="btn-apply" @click="handleApply()">{{ $t('Analytics.AnalyticsApply') }}</button>
             </div>
 
           </b-col>
           <b-col md="9">
-            <div class="analytics-chart-wrap">
+            <div class="analytics-wrap__chart">
               <div class="analytics-chart">
                 <div class="choose-block" v-if="!(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
                   <img :src="ChooseImg" alt="choose img">
-                  <h4>{{ $t('Analytics.AnalyticsChoose') }}</h4>
+                  <h4 class="choose-block__title">{{ $t('Analytics.AnalyticsChoose') }}</h4>
                 </div>
                 <b-col v-if="(chartDataBlocks || chartDataTxCount ||
               chartDataTxVolume || chartDataTxVolume || chartDataCreatedAddresses ||
               chartDataActiveAddresses || chartDataTotalAddresses)">
                   <div class="chart" v-if="chartDataBlocks">
-                    <h4>{{ $t('Analytics.ChartBlocks') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartBlocks') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataBlocks"
@@ -84,7 +84,7 @@
                     <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataCreatedAddresses">
-                    <h4>{{ $t('Analytics.ChartCreatedAddresses') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartCreatedAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataCreatedAddresses"
@@ -94,7 +94,7 @@
                     <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataActiveAddresses">
-                    <h4>{{ $t('Analytics.ChartActiveAddresses') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartActiveAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataActiveAddresses"
@@ -104,7 +104,7 @@
                     <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTotalAddresses">
-                    <h4>{{ $t('Analytics.ChartTotalAddresses') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartTotalAddresses') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTotalAddresses"
@@ -114,7 +114,7 @@
                     <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxCount">
-                    <h4>{{ $t('Analytics.ChartTransactionsCount') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartTransactionsCount') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTxCount"
@@ -124,7 +124,7 @@
                     <h5 v-else>{{ $t('Analytics.ChartNoData') }}</h5>
                   </div>
                   <div class="chart" v-if="chartDataTxVolume">
-                    <h4>{{ $t('Analytics.ChartTransactionVolumes') }}</h4>
+                    <h4 class="chart-title">{{ $t('Analytics.ChartTransactionVolumes') }}</h4>
                     <HistoryChart
                       v-if="chartDataBlocksSize"
                       :data="chartDataTxVolume"
@@ -136,8 +136,9 @@
                 </b-col>
               </div>
 
-              <div class="chart-form">
+              <div class="analytics-wrap__form">
                 <iframe
+                  class="analytics-form"
                   src="https://docs.google.com/forms/d/e/1FAIpQLScZJrmU3zB1C8Kcnr_MsEqwZlJA5fa9H6deUraljnCtrqfu2A/viewform?embedded=true"
                   width="639"
                   height="710"
@@ -400,175 +401,157 @@ export default {
 };
 </script>
 
-<style>
-  .multiple-select {
-    margin-top: 16px;
-  }
-
+<style lang="scss">
   .analytics-wrap {
     padding: 140px 0;
-    background: linear-gradient(180deg, rgba(251, 251, 252, 0) 0%, #C2DCF7 100%);
+    background: $gradient--blue;
+    .title {
+      padding-bottom: 80px;
+    }
+    &__sidebar {
+      &__title {
+        margin: 0;
+        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        color: $grey--darker-3;
+        line-height: 40px;
+      }
+      .vdatetime-input, .md-field .label-form {
+        font-size: 12px;
+      }
+      .multiple-select {
+        margin-top: 16px;
+        .vdatetime .vdatetime-input {
+          padding: 9px 15px;
+          width: 100%;
+          border: 1px solid $grey--border;
+          box-sizing: border-box;
+          border-radius: 4px;
+        }
+        &__block {
+          position: relative;
+        }
+      }
+      .apply-warning {
+        padding-top: 20px;
+        justify-content: center;
+        &__text {
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 15px;
+          color: firebrick;
+        }
+      }
+      .btn-apply {
+        margin-top: 32px;
+        padding: 10px 10px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: $gradient--blue-btn;
+        background-blend-mode: soft-light, normal;
+        box-shadow: $shadow--dark-btn;
+        border: none;
+        border-radius: 6px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 21px;
+        line-height: 21px;
+        color: $white;
+        transition: .3s ease-in-out;
+        &:hover {
+          box-shadow: none;
+          transform: translateY(1px);
+        }
+      }
+    }
+    &__sidebar,
+    &__chart {
+      padding: 24px;
+      background: $white;
+      box-shadow: $shadow--grey;
+      border-radius: 6px;
+      .analytics-chart {
+        padding: 24px 0;
+        min-height: 488px;
+        display: flex;
+        justify-content: center;
+      }
+      .chart {
+        height: 388px;
+        padding-top: 20px;
+        margin-bottom: 80px;
+        &-title {
+          margin: 0;
+          padding-top: 20px;
+          padding-bottom: 30px;
+          font-family: Roboto;
+          font-weight: 500;
+          font-size: 24px;
+          color: $grey--blueish;
+        }
+      }
+      .choose-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        &__title {
+          margin: 0;
+          padding-top: 40px;
+          font-family: Roboto;
+          font-style: normal;
+          font-weight: normal;
+          font-size: 21px;
+          color: $grey--darker-2;
+        }
+      }
+    }
+    &__form {
+      padding: 140px 30px 0 30px;
+      text-align: center;
+      .analytics-form:not(.md-image) {
+        height: 720px;
+      }
+    }
   }
 
-  .analytics-wrap h2 {
-    padding-bottom: 80px;
+  /* Style select */
+  .md-menu.md-select .md-input {
+    font-size: 12px;
+    -webkit-text-fill-color: $grey--darker-2;
   }
-  .chart-form {
-    padding: 140px 30px 0 30px;
-    text-align: center;
-  }
-  .chart-form iframe:not(.md-image) {
-    height: 720px;
-  }
-
-  .analytics-sidebar, .analytics-chart-wrap {
-    padding: 24px;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 20px rgba(215, 222, 227, 0.39422), 0px 26px 90px rgba(51, 59, 69, 0.1);
-    border-radius: 6px;
-  }
-
-  .analytics-chart {
-    padding: 24px 0;
-    min-height: 488px;
-    display: flex;
-    justify-content: center;
-  }
-
-  .chart {
-    height: 388px;
-    padding-top: 20px;
-    margin-bottom: 80px;
-  }
-
-  .chart h4 {
-    margin: 0;
-    padding-top: 20px;
-    padding-bottom: 30px;
-    font-family: Roboto;
-    font-weight: 500;
-    font-size: 24px;
-    color: #54617A;
-  }
-
-  .apply-warning {
-    padding-top: 20px;
-    justify-content: center;
-  }
-
-  .apply-warning h4 {
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    color: firebrick;
-  }
-
-  .choose-block {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .choose-block h4 {
-    margin: 0;
-    padding-top: 40px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    color: #8D939D;
-  }
-
-  .analytics-sidebar h3 {
-    margin: 0;
-    padding-bottom: 8px;
-    display: flex;
-    align-items: center;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 15px;
-    color: #69758B;
-    line-height: 40px;
-  }
-
-  .btn-apply {
-    margin-top: 32px;
-    padding: 10px 10px;
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(255, 255, 255, 0.12) 100%), #1F8EFA;
-    background-blend-mode: soft-light, normal;
-    box-shadow: 0px 11px 16px rgba(68, 112, 180, 0.17);
-    border: none;
-    border-radius: 6px;
-    font-family: Roboto;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 21px;
-    line-height: 21px;
-    color: #FFFFFF;
-    transition: .3s ease-in-out;
-  }
-
-  .btn-apply:hover {
-    box-shadow: none;
-    transform: translateY(1px);
-  }
-
-  .multiple-select .vdatetime input {
-    padding: 9px 15px;
-    width: 100%;
-    border: 1px solid #D4D7DD;
-    box-sizing: border-box;
-    border-radius: 4px;
-  }
-
-  /*Select style*/
   .md-menu-content {
     box-shadow: none;
+    &-container {
+      position: absolute;
+      top: 48px;
+      width: 100%;
+      background: $white;
+      box-shadow: $shadow--grey;
+    }
   }
-
-  .multiple-select-block {
-    position: relative;
-  }
-
-  .md-menu-content-container {
-    position: absolute;
-    top: 48px;
-    width: 100%;
-    background: #fff;
-    box-shadow: 0px 0px 20px rgba(215, 222, 227, 0.39422), 0px 26px 90px rgba(51, 59, 69, 0.1);
-  }
-
   .md-field {
     margin: 0;
     padding-top: 0;
     min-height: auto;
+    border-bottom: 1px solid $grey--border;
+    .label-form {
+      color: $grey--darker-2;
+      top: 5px;
+    }
   }
-
-  .analytics-sidebar input, .md-field label {
-    font-size: 12px;
-  }
-
-  .analytics-wrap .md-menu.md-select .md-input {
-    font-size: 12px;
-    -webkit-text-fill-color: #8D939D;
-  }
-
-  .md-field label {
-    color: #8D939D;
-    top: 5px;
-  }
-
-  .md-field.md-theme-default.md-focused label, .md-field.md-theme-default.md-has-value label {
+  .md-field.md-theme-default.md-focused .label-form, .md-field.md-theme-default.md-has-value .label-form {
     display: none;
   }
-
   .md-list-item-text {
     display: flex;
     font-family: Roboto;
@@ -576,28 +559,21 @@ export default {
     font-weight: normal;
     font-size: 14px;
     line-height: 28px;
-    color: #69758B;
+    color: $grey--darker-3;
   }
 
   .md-checkbox.md-theme-default .md-checkbox-container {
-    border-color: rgba(0, 0, 0, 0.54);
+    border-color: $black-opacity;
   }
-
   .md-checkbox.md-theme-default.md-checked.md-primary .md-checkbox-container {
-    background-color: #448aff;
-    background-color: var(--md-theme-default-primary, #448aff);
-    border-color: #448aff;
-    border-color: var(--md-theme-default-primary, #448aff);
+    background-color: $blue--pale-4;
+    background-color: var(--md-theme-default-primary, $blue--pale-4);
+    border-color: $blue--pale-4;
+    border-color: var(--md-theme-default-primary, $blue--pale-4);
   }
-
   .md-checkbox.md-theme-default.md-checked .md-checkbox-container:after {
-    border-color: #fff;
-    border-color: var(--md-theme-default-background, #fff);
+    border-color: $white;
+    border-color: var(--md-theme-default-background, $white);
   }
-
-  .md-field {
-    border-bottom: 1px solid #D4D7DD;
-  }
-
-  /*Select style*/
+  /* Style select */
 </style>
