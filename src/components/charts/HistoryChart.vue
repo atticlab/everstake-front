@@ -2,14 +2,14 @@
 import { Line } from 'vue-chartjs';
 
 export default {
-  name: 'LineChart',
+  name: 'HistoryChart',
   extends: Line,
   props: ['data', 'options'],
   computed: {
     generateChartGradient() {
-      const gradient = this.$refs.canvas.getContext('2d').createLinearGradient(0, 400, 0, 0);
-      gradient.addColorStop(1, 'rgba(255, 255, 255, 0.2)');
-      gradient.addColorStop(0, 'rgba(62, 224, 67, 0.7)');
+      const gradient = this.$refs.canvas.getContext('2d').createLinearGradient(500, 0, 100, 0);
+      gradient.addColorStop(1, 'rgba(0, 145, 253, 0.3)');
+      gradient.addColorStop(0, 'rgba(0,145,253,0.4)');
       return gradient;
     },
   },

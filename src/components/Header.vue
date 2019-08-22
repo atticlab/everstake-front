@@ -40,6 +40,13 @@
               {{ $t('home.whatIsStaking') }}
             </router-link>
           </li>
+
+          <li class="nav__li">
+            <router-link :to="{ name: 'analytics'}" class="nav__link">
+              {{ $t('home.analytics') }}
+            </router-link>
+          </li>
+
           <li class="nav__li">
             <router-link :to="{ name: 'home' }"
                          class="btn"
@@ -107,15 +114,19 @@ export default {
 
       &:hover {
         color: $blue--bright;
+        text-decoration: none;
       }
 
       &.router-link-exact-active.router-link-active {
         color: $blue--bright;
       }
     }
+    .btn {
+      text-decoration: none;
+    }
   }
 
-  @media (max-width: 1199px) {
+  @media (max-width: 1366px) {
     .logo {
       max-width: 200px;
     }
@@ -126,6 +137,12 @@ export default {
 
     .nav__link {
       font-size: 17px;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    .nav__li {
+      padding-right: 15px;
     }
   }
 

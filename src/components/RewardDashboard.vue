@@ -135,7 +135,7 @@ export default {
         maintainAspectRatio: false,
       },
       rewardsLoaded: false,
-      selectedRewards: null,
+      selectedGrapfs: null,
       selectedCoin: 'Tezos',
       comingSoonCoins: ['Waves', 'Dash', 'Qtum', 'Decred'],
       coinsRewardsMethods: {

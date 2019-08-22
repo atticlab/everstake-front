@@ -22,6 +22,9 @@
       <b-dropdown-item :to="{ name: 'staking' }">
         {{ this.$t('home.whatIsStaking') }}
       </b-dropdown-item>
+      <b-dropdown-item :to="{ name: 'analytics' }">
+        {{ this.$t('home.analytics') }}
+      </b-dropdown-item>
     </b-dropdown>
 
     <b-dropdown id="mobileDropdowAlt"
@@ -42,6 +45,10 @@
       <b-dropdown-item :to="{ name: 'staking' }">
         {{ this.$t('home.whatIsStaking') }}
       </b-dropdown-item>
+      <b-dropdown-item :to="{ name: 'analytics' }">
+        {{ this.$t('home.analytics') }}
+      </b-dropdown-item>
+
     </b-dropdown>
   </div>
 </template>

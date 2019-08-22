@@ -16,10 +16,13 @@ $blue--grey-3:  #3e4e6c;
 $blue--grey-3-30:  #384661;
 $blue--grey-3-25:  #2f3b51;
 $blue--pale-grey: #e5ecf1;
+$blue--pale-4: #448aff;
 $white: #fff;
 $grey: #444f5b;
 $grey--light: #cfd7db;
 $grey--darker: #98a1a7;
+$grey--darker-2: #8d939d;
+$grey--darker-3: #69758b;
 $grey--asphalt: #7b8aa4;
 $grey--asphalt-50: #4f5c73;
 $grey--blueish: #54617a;
@@ -36,11 +39,13 @@ $red: #ff4d4d;
 
 // Transparent colors
 $grey-03: rgba(201, 209, 216, 0.3);
+$black-opacity: rgba(0, 0, 0, 0.54);
 
 // Shadows
 $shadow--blue: rgba(68, 112, 180, 0.17);
 $shadow--white: rgba(215, 222, 227, 0.39), 0 26px 90px rgba(51, 59, 69, 0.1);
 $shadow--dark: rgba(14, 21, 32, 0.17);
+$shadow--dark-btn: 0px 11px 16px rgba(68, 112, 180, 0.17);
 $shadow--vague: 0 10px 12px rgba(14, 21, 32, 0.06);
 $shadow--grey: 0 0 20px rgba(215, 222, 227, 0.39), 0 26px 90px rgba(51, 59, 69, 0.1);
 $shadow--black: 4px 4px 15px rgba(7, 42, 68, 0.1);;
@@ -48,6 +53,10 @@ $shadow--black: 4px 4px 15px rgba(7, 42, 68, 0.1);;
 // Gradients
 $gradient--light: linear-gradient($white 0%, $blue--pale-grey 100%);
 $gradient--blue: linear-gradient(rgba(0, 116, 228, 0) 28%, rgba(0, 116, 228, 0.26) 93%);
+$gradient--blue-btn: linear-gradient(0deg, rgba(0, 0, 0, 0.12) 0%, rgba(255, 255, 255, 0.12) 100%), #1F8EFA;
 
 // Custom breakpoints
 $laptop-width: 1441px;
+
+// Border
+$grey--border: #d4d7dd;
