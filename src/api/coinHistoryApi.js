@@ -2,7 +2,7 @@ import Axios from 'axios';
 import removeTrailingSlash from 'remove-trailing-slash';
 
 const axios = Axios.create({
-  baseURL: removeTrailingSlash('http://195.69.197.160:3001/api/0.1/'),
+  baseURL: removeTrailingSlash('https://analytics.everstake.one/api/0.1/'),
   timeout: 30000,
   headers: {
     'Access-Control-Allow-Origin': '*',
