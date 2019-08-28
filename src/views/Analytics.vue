@@ -390,6 +390,7 @@ export default {
     this.coins = [
       ['tezos', 'Tezos'],
       ['cosmos', 'Cosmos'],
+      ['irisnet', 'IRISnet'],
       // ['eos', 'EOS'],
     ]; // will get from endpoint
     this.timespans = [['hour', 'One hour'], ['day', 'One day'], ['week', 'One week'], ['month', 'One month']];
