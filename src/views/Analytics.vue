@@ -226,7 +226,7 @@ export default {
           this.chartDataBlocks = this.mapChartData(data);
           this.chartDataBlocksSize = data.data.length;
           break;
-        case 'graph-total':
+        case 'graph-addresses':
           data = await coinHistoryApi.createdAddresses(coin, period, startDate, endDate);
           this.chartDataCreatedAddresses = this.mapChartData(data);
           this.chartDataBlocksSize = data.data.length;
@@ -246,7 +246,7 @@ export default {
           this.chartDataActiveAddresses = this.mapChartData(data);
           this.chartDataBlocksSize = data.data.length;
           break;
-        case 'graph-addresses':
+        case 'graph-total':
           data = await coinHistoryApi.totalAddresses(coin, period, startDate, endDate);
           this.chartDataTotalAddresses = this.mapChartData(data);
           this.chartDataBlocksSize = data.data.length;
