@@ -393,7 +393,8 @@ export default {
       ['irisnet', 'IRISnet'],
       // ['eos', 'EOS'],
     ]; // will get from endpoint
-    this.timespans = [['hour', 'One hour'], ['day', 'One day'], ['week', 'One week'], ['month', 'One month']];
+    // ['month', 'One month']
+    this.timespans = [['hour', 'One hour'], ['day', 'One day'], ['week', 'One week']];
     this.chartTypes = [['graph-blocks', 'Number of blocks'], ['graph-addresses', 'Number of addresses created'],
       ['graph-active-addresses', 'Number of active addresses'], ['graph-total', 'Total number of addresses'],
       ['graph-transaction', 'Number of transaction'], ['graph-volumes', 'Transaction volumes']];
