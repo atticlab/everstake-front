@@ -101,6 +101,11 @@ export default new Router({
       name: 'analytics',
       component: () => import('./views/Analytics.vue'),
     },
+    {
+      path: '/tech-survey',
+      name: 'techSurvey',
+      component: () => import('./views/Questionnaire.vue'),
+    },
   ],
   scrollBehavior(to, from, savedPosition) {
     return { x: 0, y: 0 };

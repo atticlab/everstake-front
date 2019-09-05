@@ -88,6 +88,12 @@
                       {{ this.$t('home.support') }}
                     </a>
                   </li>
+                  <li class="footer-nav__li">
+                    <router-link :to="{name: 'techSurvey'}"
+                       class="link">
+                      {{ this.$t('home.techSurvey') }}
+                    </router-link>
+                  </li>
                 </ul>
               </nav>
             </template>

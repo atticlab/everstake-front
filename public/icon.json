@@ -23,6 +23,6 @@
       "city": "Frankfurt"
     },
     "server_type": "",
-    "api_endpoint": ""
+    "api_endpoint": "http://icon.everstake.one:9000"
   }
 }
