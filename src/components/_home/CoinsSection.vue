@@ -17,7 +17,9 @@
               <template slot="icon">
                 <img :src="coinObj.img"
                      :alt="coinObj.name"
-                     :width="coinObj.name === 'IOTEX' || coinObj.name === 'Dash' ? '80px' : 'auto'">
+                     :width="coinObj.name === 'IOTEX'
+                             || coinObj.name === 'Dash'
+                             ? '80px' : 'auto'">
               </template>2
               <template slot="name">{{ coinObj.name }}</template>
               <template slot="percent">{{ coinObj.percent }}</template>
@@ -54,6 +56,10 @@
                 <img v-if="coinObj.img"
                      :src="coinObj.img"
                      :alt="coinObj.name"
+                     :width="coinObj.name === 'Elixxir'
+                             || coinObj.name === 'Kusama Network'
+                             || coinObj.name === 'TON Network'
+                             ? '70px' : 'auto'"
                 >
                 <Dots v-else-if="coinObj.img === ''"></Dots>
               </template>
@@ -107,6 +113,9 @@ import Ontology from '@/assets/img/coins-presentation/ontology.svg';
 import Icon from '@/assets/img/coins-presentation/icon.svg';
 import CasperLabs from '@/assets/img/coins-presentation/casperlabs.svg';
 import Near from '@/assets/img/coins-presentation/near.svg';
+import Elixxir from '@/assets/img/coins-presentation/elixxir.svg';
+import Kusama from '@/assets/img/coins-presentation/kusama.svg';
+import TON from '@/assets/img/coins-presentation/ton.svg';
 
 
 export default {
@@ -226,6 +235,21 @@ export default {
         },
       ],
       devCoins: [
+        {
+          img: TON,
+          name: 'TON Network',
+          description: this.$t('home.moreDetails'),
+        },
+        {
+          img: Kusama,
+          name: 'Kusama Network',
+          description: this.$t('home.moreDetails'),
+        },
+        {
+          img: Elixxir,
+          name: 'Elixxir',
+          description: this.$t('home.moreDetails'),
+        },
         {
           img: Near,
           name: 'Near',

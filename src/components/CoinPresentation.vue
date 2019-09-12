@@ -38,7 +38,6 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 268px;
     margin: 0 auto 105px;
     min-height: 408px;
 
@@ -58,6 +57,7 @@ export default {
       color: $white;
       font-size: 30px;
       font-weight: 300;
+      text-align: center;
 
       &--disabled {
         color: $grey--asphalt;
