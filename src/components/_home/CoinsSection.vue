@@ -116,6 +116,7 @@ import Near from '@/assets/img/coins-presentation/near.svg';
 import Elixxir from '@/assets/img/coins-presentation/elixxir.svg';
 import Kusama from '@/assets/img/coins-presentation/kusama.svg';
 import TON from '@/assets/img/coins-presentation/ton.svg';
+import DAO from '@/assets/img/coins-presentation/daobet.svg';
 
 
 export default {
@@ -235,6 +236,11 @@ export default {
         },
       ],
       devCoins: [
+        {
+          img: DAO,
+          name: 'DAO BET',
+          description: this.$t('home.moreDetails'),
+        },
         {
           img: TON,
           name: 'TON Network',
